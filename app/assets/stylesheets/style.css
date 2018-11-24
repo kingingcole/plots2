@@ -114,9 +114,6 @@ a .fa-white,
 }
 
 @media (max-width: 768px) {
-    .navbar-header {
-        float: none;
-    }
     .navbar-left,.navbar-right {
         float: none !important;
     }
@@ -153,7 +150,6 @@ a .fa-white,
     }
 }
 
-body { padding-top: 70px; }
 
 #header .collapse.in .hidden-xs,
 #header .collapse.in .hidden-sm,
@@ -169,7 +165,7 @@ body { padding-top: 70px; }
 
 #header .navbar-brand {
   color: white;
-  padding-top: 19px;
+  /*padding-top: 19px;*/
   font-family: "Junction Light", lucida grande,lucida sans console,sans-serif;
   font-size: 22px;
 }
