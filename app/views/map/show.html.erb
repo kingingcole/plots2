@@ -5,13 +5,13 @@
 
 <div class="row">
 
-<div class="col-md-9">
+<div class="col-lg-9">
 
   <%= render :partial => "like/like", :locals => {:node => @node, :tagnames => @tagnames } %>
   <% if current_user && (current_user.uid == @node.uid || current_user.role == "admin") %>
-    <div style="padding:0 8px 8px;" class="btn-group pull-right">
-      <a class="btn btn-default btn-sm" href="/map/edit/<%= @node.id %>"><i class="fa fa-pencil"></i> Edit</a>
-      <%= link_to "/map/delete/"+@node.id.to_s, :confirm => 'Are you sure?', :class => "btn btn-default btn-sm" do %>
+    <div style="padding:0 8px 8px;" class="btn-group float-right">
+      <a class="btn btn-outline-secondary btn-sm" href="/map/edit/<%= @node.id %>"><i class="fa fa-pencil"></i> Edit</a>
+      <%= link_to "/map/delete/"+@node.id.to_s, :confirm => 'Are you sure?', :class => "btn btn-outline-secondary btn-sm" do %>
         <i class="fa fa-trash"></i> Delete
       <% end %>
     </div> 
@@ -19,7 +19,7 @@
 
   <h2 style="clear:left;"><%= @node.title %></h2>
 
-  <div class="pull-right"><%= render :partial => "home/social" %></div>
+  <div class="float-right"><%= render :partial => "home/social" %></div>
 
   <div class="btn-toolbar">
     <div class="btn-group">

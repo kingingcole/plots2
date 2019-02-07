@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-lg-3">
   <%= javascript_include_tag "dragdrop" %>
 
   <h4>Use good metadata!</h4>
@@ -6,7 +6,7 @@
 
 </div>
 
-<div class="col-md-9">
+<div class="col-lg-9">
   <% 
   if @node && params[:action] != "new" && params[:action] != "create"
     url = { :controller => "map", :action => "update", :id => params[:id] }
@@ -21,13 +21,13 @@
 
   <% end %>
 
-  <%= form_for @node, :as => :drupal_node, :url => url, :html => {:class => "form well"} do |f| %>
+  <%= form_for @node, :as => :drupal_node, :url => url, :html => {:class => "form card card-bddy bg-light"} do |f| %>
 
     <% if f.error_messages != "" %><div class="alert alert-danger"><%= f.error_messages :header_message => "Your map couldn't be saved." %></div><% end %>
 
     <%= render :partial => "editor/main_image" %>
 
-    <div class="form-group col-md-9 col-md-pull-3">
+    <div class="form-group col-lg-9 order-lg-1">
 
       <h3>Publish a map to the Archive</h3>
 
@@ -51,19 +51,19 @@
     <h4>Map metadata</h4>
 
     <div class="form-group">
-      <label>TMS URL (required)       </label><input id="map_field_tms_url_value"             tabindex="6" name="map[field_tms_url_value]"             type="text" class="col-md-9 form-control" placeholder="TMS URL"              value="<%= @node.map.field_tms_url_value if @node.map %>"><br />
-      <label>TMS tile type            </label><input id="map_field_tms_tile_type_value"       tabindex="7" name="map[field_tms_tile_type_value]"       type="text" class="col-md-9 form-control" placeholder="TMS tile type"        value="<%= @node.map.field_tms_tile_type_value if @node.map %>"><br />
+      <label>TMS URL (required)       </label><input id="map_field_tms_url_value"             tabindex="6" name="map[field_tms_url_value]"             type="text" class="col-lg-9 form-control" placeholder="TMS URL"              value="<%= @node.map.field_tms_url_value if @node.map %>"><br />
+      <label>TMS tile type            </label><input id="map_field_tms_tile_type_value"       tabindex="7" name="map[field_tms_tile_type_value]"       type="text" class="col-lg-9 form-control" placeholder="TMS tile type"        value="<%= @node.map.field_tms_tile_type_value if @node.map %>"><br />
  
-      <label>By (cartographer and mappers)    </label><input id="map_authorship"    tabindex="8"  name="map[authorship]" type="text" class="col-md-9 form-control" placeholder="authorship" value="<%= @node.map.authorship if @node.map %>" /><br />
+      <label>By (cartographer and mappers)    </label><input id="map_authorship"    tabindex="8"  name="map[authorship]" type="text" class="col-lg-9 form-control" placeholder="authorship" value="<%= @node.map.authorship if @node.map %>" /><br />
  
-      <label>Mapped by    </label><input id="map_field_publication_date_value"    tabindex="9"  name="map[field_publication_date_value]"    type="text" class="col-md-9 form-control" placeholder=""     value="<%= @node.drupal_content_field_mappers.collect(&:field_mappers_value).uniq.join(', ') %>" disabled /><br />
-      <label>Cartographer </label><input id="map_field_capture_date_value" tabindex="10" type="text" class="col-md-9 form-control" value="<%= @node.drupal_content_field_map_editor.collect(&:field_map_editor_value).uniq.join(', ') %>" disabled /><br />
+      <label>Mapped by    </label><input id="map_field_publication_date_value"    tabindex="9"  name="map[field_publication_date_value]"    type="text" class="col-lg-9 form-control" placeholder=""     value="<%= @node.drupal_content_field_mappers.collect(&:field_mappers_value).uniq.join(', ') %>" disabled /><br />
+      <label>Cartographer </label><input id="map_field_capture_date_value" tabindex="10" type="text" class="col-lg-9 form-control" value="<%= @node.drupal_content_field_map_editor.collect(&:field_map_editor_value).uniq.join(', ') %>" disabled /><br />
  
-      <label>Field notes               </label><textarea id="map_field_notes_value"               tabindex="11" name="map[field_notes_value]"               type="text" class="col-md-9 form-control" placeholder="A brief report from the field"><%= @node.map.notes if @node.map %></textarea><br />
-      <label>Cartographer notes  </label><textarea id="map_field_cartographer_notes_value"  tabindex="12" name="map[field_cartographer_notes_value]"  type="text" class="col-md-9 form-control" placeholder="Comments on the production of the map"><%= @node.map.cartographer_notes if @node.map %></textarea><br />
+      <label>Field notes               </label><textarea id="map_field_notes_value"               tabindex="11" name="map[field_notes_value]"               type="text" class="col-lg-9 form-control" placeholder="A brief report from the field"><%= @node.map.notes if @node.map %></textarea><br />
+      <label>Cartographer notes  </label><textarea id="map_field_cartographer_notes_value"  tabindex="12" name="map[field_cartographer_notes_value]"  type="text" class="col-lg-9 form-control" placeholder="Comments on the production of the map"><%= @node.map.cartographer_notes if @node.map %></textarea><br />
  
-      <label>Publication date    </label><input id="map_field_publication_date_value"    tabindex="13"  name="map[field_publication_date_value]"    type="text" class="col-md-9 form-control" placeholder="publication_date"     value="<%= @node.map.field_publication_date_value if @node.map %>"><br />
-      <label>Capture date        </label><input id="map_field_capture_date_value"        tabindex="14"  name="map[field_capture_date_value]"        type="text" class="col-md-9 form-control" placeholder="Capture Date"         value="<%= @node.map.field_capture_date_value if @node.map %>"><br />
+      <label>Publication date    </label><input id="map_field_publication_date_value"    tabindex="13"  name="map[field_publication_date_value]"    type="text" class="col-lg-9 form-control" placeholder="publication_date"     value="<%= @node.map.field_publication_date_value if @node.map %>"><br />
+      <label>Capture date        </label><input id="map_field_capture_date_value"        tabindex="14"  name="map[field_capture_date_value]"        type="text" class="col-lg-9 form-control" placeholder="Capture Date"         value="<%= @node.map.field_capture_date_value if @node.map %>"><br />
  
       <label>License             </label><select class="form-control" id="map_field_license_value"             tabindex="15" name="map[field_license_value]"             type="text">
        <option value="cc-by-sa" selected="<%= @node.map && @node.map.field_license_value == "cc-by-sa" %>">CC-BY-SA</option>
@@ -71,19 +71,19 @@
        <option value="publicdomain" selected="<%= @node.map && @node.map.field_license_value == "publicdomain" %>">Public Domain</option>
      </select><br />
  
-      <label>Min zoom            </label><input id="map_field_zoom_min_value"            tabindex="16" name="map[field_zoom_min_value]"            type="text" class="col-md-9 form-control" placeholder="Zoom min"             value="<%= @node.map.field_zoom_min_value if @node.map %>"><br />
-      <label>Max zoom            </label><input id="map_field_zoom_max_value"            tabindex="17" name="map[field_zoom_max_value]"            type="text" class="col-md-9 form-control" placeholder="Zoom max"             value="<%= @node.map.field_zoom_max_value if @node.map %>"><br />
-      <label>Ground resolution   </label><input id="map_field_ground_resolution_value"   tabindex="18" name="map[field_ground_resolution_value]"   type="text" class="col-md-9 form-control" placeholder="Ground resolution"    value="<%= @node.map.field_ground_resolution_value if @node.map %>"><br />
+      <label>Min zoom            </label><input id="map_field_zoom_min_value"            tabindex="16" name="map[field_zoom_min_value]"            type="text" class="col-lg-9 form-control" placeholder="Zoom min"             value="<%= @node.map.field_zoom_min_value if @node.map %>"><br />
+      <label>Max zoom            </label><input id="map_field_zoom_max_value"            tabindex="17" name="map[field_zoom_max_value]"            type="text" class="col-lg-9 form-control" placeholder="Zoom max"             value="<%= @node.map.field_zoom_max_value if @node.map %>"><br />
+      <label>Ground resolution   </label><input id="map_field_ground_resolution_value"   tabindex="18" name="map[field_ground_resolution_value]"   type="text" class="col-lg-9 form-control" placeholder="Ground resolution"    value="<%= @node.map.field_ground_resolution_value if @node.map %>"><br />
  
-      <label>Raw images URL           </label><input id="map_field_raw_images_value"          tabindex="19" name="map[field_raw_images_value]"          type="text" class="col-md-9 form-control" placeholder="Raw images URL"           value="<%= @node.map.field_raw_images_value if @node.map %>"><br />
-      <label>Raw images filesize (MB) </label><input id="map_field_raw_images_filesize_value" tabindex="20" name="map[field_raw_images_filesize_value]" type="text" class="col-md-9 form-control" placeholder="Raw images filesize"  value="<%= @node.map.field_raw_images_filesize_value if @node.map %>"><br />
-      <label>GeoTiff URL              </label><input id="map_field_geotiff_url_value"         tabindex="21" name="map[field_geotiff_url_value]"         type="text" class="col-md-9 form-control" placeholder="Geotiff URL"          value="<%= @node.map.field_geotiff_url_value if @node.map %>"><br />
-      <label>GeoTiff filesize (MB)    </label><input id="map_field_geotiff_filesize_value"    tabindex="22" name="map[field_geotiff_filesize_value]"    type="text" class="col-md-9 form-control" placeholder="Geotiff Filesize"     value="<%= @node.map.field_geotiff_filesize_value if @node.map %>"><br />
-      <label>Google Maps URL          </label><input id="map_field_google_maps_url_value"     tabindex="23" name="map[field_google_maps_url_value]"     type="text" class="col-md-9 form-control" placeholder="Google Maps URL"      value="<%= @node.map.field_google_maps_url_value if @node.map %>"><br />
-      <label>OpenLayers URL           </label><input id="map_field_openlayers_url_value"      tabindex="24" name="map[field_openlayers_url_value]"      type="text" class="col-md-9 form-control" placeholder="OpenLayers URL"       value="<%= @node.map.field_openlayers_url_value if @node.map %>"><br />
-      <label>JPG URL                  </label><input id="map_field_jpg_url_value"             tabindex="25" name="map[field_jpg_url_value]"             type="text" class="col-md-9 form-control" placeholder="JPG URL"              value="<%= @node.map.field_jpg_url_value if @node.map %>"><br />
-      <label>JPG filesize (MB)        </label><input id="map_field_jpg_filesize_value"        tabindex="26" name="map[field_jpg_filesize_value]"        type="text" class="col-md-9 form-control" placeholder="JPG Filesize"         value="<%= @node.map.field_jpg_filesize_value if @node.map %>"><br />
-      <label>MBTiles URL              </label><input id="map_field_mbtiles_url_value"         tabindex="27" name="map[field_mbtiles_url_value]"         type="text" class="col-md-9 form-control" placeholder="MBTiles URL"          value="<%= @node.map.field_mbtiles_url_value if @node.map %>"><br />
+      <label>Raw images URL           </label><input id="map_field_raw_images_value"          tabindex="19" name="map[field_raw_images_value]"          type="text" class="col-lg-9 form-control" placeholder="Raw images URL"           value="<%= @node.map.field_raw_images_value if @node.map %>"><br />
+      <label>Raw images filesize (MB) </label><input id="map_field_raw_images_filesize_value" tabindex="20" name="map[field_raw_images_filesize_value]" type="text" class="col-lg-9 form-control" placeholder="Raw images filesize"  value="<%= @node.map.field_raw_images_filesize_value if @node.map %>"><br />
+      <label>GeoTiff URL              </label><input id="map_field_geotiff_url_value"         tabindex="21" name="map[field_geotiff_url_value]"         type="text" class="col-lg-9 form-control" placeholder="Geotiff URL"          value="<%= @node.map.field_geotiff_url_value if @node.map %>"><br />
+      <label>GeoTiff filesize (MB)    </label><input id="map_field_geotiff_filesize_value"    tabindex="22" name="map[field_geotiff_filesize_value]"    type="text" class="col-lg-9 form-control" placeholder="Geotiff Filesize"     value="<%= @node.map.field_geotiff_filesize_value if @node.map %>"><br />
+      <label>Google Maps URL          </label><input id="map_field_google_maps_url_value"     tabindex="23" name="map[field_google_maps_url_value]"     type="text" class="col-lg-9 form-control" placeholder="Google Maps URL"      value="<%= @node.map.field_google_maps_url_value if @node.map %>"><br />
+      <label>OpenLayers URL           </label><input id="map_field_openlayers_url_value"      tabindex="24" name="map[field_openlayers_url_value]"      type="text" class="col-lg-9 form-control" placeholder="OpenLayers URL"       value="<%= @node.map.field_openlayers_url_value if @node.map %>"><br />
+      <label>JPG URL                  </label><input id="map_field_jpg_url_value"             tabindex="25" name="map[field_jpg_url_value]"             type="text" class="col-lg-9 form-control" placeholder="JPG URL"              value="<%= @node.map.field_jpg_url_value if @node.map %>"><br />
+      <label>JPG filesize (MB)        </label><input id="map_field_jpg_filesize_value"        tabindex="26" name="map[field_jpg_filesize_value]"        type="text" class="col-lg-9 form-control" placeholder="JPG Filesize"         value="<%= @node.map.field_jpg_filesize_value if @node.map %>"><br />
+      <label>MBTiles URL              </label><input id="map_field_mbtiles_url_value"         tabindex="27" name="map[field_mbtiles_url_value]"         type="text" class="col-lg-9 form-control" placeholder="MBTiles URL"          value="<%= @node.map.field_mbtiles_url_value if @node.map %>"><br />
     </div>
 
     <hr style="clear:both;" />
