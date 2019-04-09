@@ -27,8 +27,12 @@
       <%= f.text_field :username, { tabindex: 1, placeholder: "Username", class: 'form-control', id: 'username-login', required: true } %>
       <div class="form-group has-feedback">
       <label class="control-label" for="password"><%= t('user_sessions.new.password') %></label>
+      <div class="input-group">
         <%= f.password_field :password, { tabindex: 2,placeholder: "Password",class: 'form-control', id: 'password-signup', onpaste: 'return false;' , required: true } %>
-  <a id="visibility" class="fa fa-eye form-control-feedback" aria-hidden="true" style="color:#888;pointer-events: auto;line-height: 2.2em;text-decoration: none;"></a>
+        <div class="input-group-append">
+          <a id="visibility" class="fa fa-eye input-group-text" aria-hidden="true" style="color:#888;pointer-events: auto;line-height: 2.2em;text-decoration: none;"></a>
+        </div>
+      </div>
 </div>
 
   </div>
